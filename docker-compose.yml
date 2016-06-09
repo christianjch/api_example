@@ -1,0 +1,58 @@
+api:
+  build: .
+  command: echo "OK"
+  #command: bundle exec rails s thin -p 3000 -b 0.0.0.0
+  environment:
+    - RAILS_ENV=development
+    - RACK_ENV=development
+    - MEMCACHE_HOST=memcached
+    - PG_HOST=postgres
+    - PG_USERNAME=postgres
+    - BUNDLE_PATH=/bundle
+    - BUNDLE_JOBS=2
+    - USER=$USER
+  volumes:
+    - .:/app
+  volumes_from:
+    - bundle
+  ports:
+    - 3000:3000
+  links:
+    - postgres
+  stdin_open: true
+  tty: true
+
+api_test:
+  build: .
+  dockerfile: Dockerfile
+  command: echo "OK"
+  environment:
+    - RAILS_ENV=test
+    - RACK_ENV=test
+    - MEMCACHE_HOST=memcached
+    - PG_HOST=postgres
+    - PG_USERNAME=postgres
+    - BUNDLE_PATH=/bundle
+    - BUNDLE_JOBS=2
+    - USER=$USER
+  volumes_from:
+    - api
+  links:
+    - postgres
+    - memcached
+
+bundle:
+  image: busybox
+  command: echo "OK"
+  volumes:
+    - /bundle
+
+postgres:
+  image: postgres:9.5.3
+  ports:
+    - 5432
+
+memcached:
+  image: memcached:1.4
+  ports:
+    - 11211

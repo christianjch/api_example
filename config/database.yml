@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  template: template1
+  username: <%= ENV.fetch("PG_USERNAME") %>
+  password: <%= ENV.fetch("PG_PASSWORD") { "postgres" } %>
+  host: <%= ENV.fetch("PG_HOST") { "127.0.0.1" } %>
+
+development:
+  <<: *default
+  database: wk_development
+
+test:
+  <<: *default
+  database: wk_test
+
+staging:
+  <<: *default
+  database: wk_staging
+
+production:
+  <<: *default
+  database: wk_production
