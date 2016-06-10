@@ -19,6 +19,7 @@ api:
     - 3000:3000
   links:
     - postgres
+    - memcached
   stdin_open: true
   tty: true
 
