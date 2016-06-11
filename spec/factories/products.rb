@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :product do
-    title "Sample title"
+    sequence(:title) { |n| "Sample title #{n}" }
     plot nil
   end
 end

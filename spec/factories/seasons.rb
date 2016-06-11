@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :season do
-    title "season name"
+    sequence(:title) { |n| "Sample title #{n}" }
     plot nil
 
     trait :with_episodes do

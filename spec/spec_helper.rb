@@ -30,3 +30,16 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+RSpec.shared_examples 'check response' do |content_type|
+
+  let(:expected_content_type) { content_type }
+
+  it 'returns http success' do
+    expect(response).to be_success
+  end
+
+  it 'should be specific content type' do
+    expect(response.content_type).to eq(expected_content_type)
+  end
+end
