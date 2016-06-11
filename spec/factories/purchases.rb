@@ -3,5 +3,7 @@ FactoryGirl.define do
     price 2.99
     quality :hd
     active true
+    product
+    user
   end
 end

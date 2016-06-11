@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :movie do
-    title nil
+    title "300"
     plot nil
   end
 end

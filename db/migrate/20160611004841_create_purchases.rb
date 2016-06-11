@@ -6,7 +6,7 @@ class CreatePurchases < ActiveRecord::Migration
 
       t.integer :quality, null: false
       t.float   :price, null: false
-      t.boolean :active, null: false
+      t.boolean :active
 
       t.timestamps
     end

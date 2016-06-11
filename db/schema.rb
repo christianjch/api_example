@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20160611005102) do
     t.integer  "product_id"
     t.integer  "quality",    null: false
     t.float    "price",      null: false
-    t.boolean  "active",     null: false
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
