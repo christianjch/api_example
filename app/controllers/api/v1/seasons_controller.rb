@@ -1,7 +1,7 @@
 module Api
   module V1
     class SeasonsController < ApplicationController
-      include ::ActsAsCacheable
+      include ActsAsCacheable
 
       def index
         Rails.cache.fetch(cache_key) do

@@ -1,0 +1,18 @@
+machine:
+  environment:
+    CI: true
+  hosts:
+    circlehost: 127.0.0.1
+    lvh.me: 127.0.0.1
+    m.lvh.me: 127.0.0.1
+  ruby:
+    version: 2.3.0
+
+general:
+  branches:
+    ignore:
+      - production
+
+dependencies:
+  override:
+    - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 --without development
