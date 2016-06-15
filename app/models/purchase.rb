@@ -9,6 +9,6 @@ class Purchase < ActiveRecord::Base
   validates_associated :user, :product
   validates_uniqueness_of :product_id, conditions: -> { where(active: true) }
 
-  scope :alive, -> { where active: true }
+  scope :alive, -> { where(active: true).order(:created_at) }
 
 end

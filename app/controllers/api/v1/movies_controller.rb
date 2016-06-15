@@ -1,8 +1,12 @@
 module Api
   module V1
     class MoviesController < ApplicationController
+      include ActsAsCacheable
+
       def index
-        @movies = Movie.all
+        Rails.cache.fetch(cache_key) do
+          @movies = Movie.all
+        end
 
         respond_with(@movies)
       end

@@ -26,9 +26,11 @@ ActiveRecord::Schema.define(version: 20160611005102) do
   add_index "episodes", ["season_id"], name: "index_episodes_on_season_id", using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.string "type"
-    t.string "title"
-    t.string "plot"
+    t.string   "type"
+    t.string   "title"
+    t.string   "plot"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "purchases", force: :cascade do |t|

@@ -22,7 +22,7 @@ module App
 
     # # Custom directories with classes and modules you want to be autoloable.
     config.autoload_paths += %W(
-      #{config.root}/app/services
+      #{config.root}/app/controllers/concerns
     )
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
