@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   has_many :alive_products, source: :product, through: :alive_purchases
 
   validates :email, presence: true
+  validates :email, uniqueness: true
 end
