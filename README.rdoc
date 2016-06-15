@@ -1,4 +1,4 @@
-https://circleci.com/gh/itSQualL/api_example/tree/master.svg?style=svg
+{<img src="https://circleci.com/gh/itSQualL/api_example/tree/master.svg?style=svg" alt="CircleCI" />}[https://circleci.com/gh/itSQualL/api_example/tree/master]
 
 == README
 
