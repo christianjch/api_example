@@ -6,9 +6,8 @@ Rails.application.routes.draw do
       resources :seasons, only: :index
 
       resources :users, only: [] do
-        resources :purchases, only: :index do
-          resources :products, only: :create
-        end
+        resources :purchases, only: :create
+        resources :active_products, only: :index, path: "library"
       end
     end
   end

@@ -4,6 +4,8 @@ class CreateProducts < ActiveRecord::Migration
       t.string :type
       t.string :title
       t.string :plot
+
+      t.timestamps
     end
   end
 end
